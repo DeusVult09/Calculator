@@ -4,12 +4,21 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     font-family: "Creepster", cursive;
 }
-background-image: url('/Calculator/image-assets/spawn.jpg');
+.hero-section {
+    background-image: url('/Calculator/image-assets/spawn.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
 
 .calculator {
+    display: flex;
+    width: 320px;
+    justify-content: center;
+    justify-items: center;
     background: #111;
     border: 2px solid #222;
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
@@ -18,6 +27,7 @@ background-image: url('/Calculator/image-assets/spawn.jpg');
 }
 
 .display {
+    display: flex;
     background: #000;
     color: #39ff14;
     text-shadow: 0 0 8px #39ff14;
@@ -29,6 +39,7 @@ background-image: url('/Calculator/image-assets/spawn.jpg');
 }
 
 button {
+   
     background: #222;
     color: #eee;
     border: 1px solid #333;
