@@ -12,18 +12,19 @@ body {
     background-position: center;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .calculator {
-    display: flex;
     width: 320px;
-    justify-content: center;
-    justify-items: center;
-    background: #111;
+    background: black;
     border: 2px solid #222;
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
     border-radius: 12px;
     padding: 1rem;
+    
 }
 
 .display {
