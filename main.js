@@ -16,29 +16,34 @@ const subtract = function(a, b) {
     return a - b;
 }
 
-const multiply = function(numbers) {
-    return numbers.reduce((acc, current) => acc * current);
+const multiply = function(a, b) {
+    return a * b;
 }
 
-const divide = function(numbers) {
-    return numbers.reduce((acc, current) => acc / current);
+const divide = function(a, b) {
+    return a / b;
 }
 
 let firstOperand = [];
 let operator = [];
 let secondOperand = [];
 
-function operate(input) {
-    if (input == '+') {
-        return add;
-    } else if (input == '-') {
-        return subtract;
-    } else if (input == '*') {
-        return multiply;
+function operate(a, operator, b) {
+    
+    let a = parseFloat(firstOperand.join(""));
+    let b = parseFloat(secondOperand.join(""));
+    let op = operator[0];
+
+    if (operator == '+') {
+        return add(a, b);
+    } else if (operator == '-') {
+        return subtract(a, b);
+    } else if (operator == '*') {
+        return multiply(a, b);
     } else {
-        return divide;
+        return divide(a, b);
     }
 }
 
-operate(operator);
+operate(firstOperand, operator, secondOperand);
 
