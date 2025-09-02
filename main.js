@@ -8,8 +8,6 @@ document.getElementById("theme-link").setAttribute("href", `css/${savedTheme}.cs
 
 const calDisplay = document.getElementById("display");
 const btns = document.querySelector(".buttons");
-const btn = document.querySelector(".btn");
-const op = document.querySelector(".op");
 const decimal = document.querySelector(".decimal");
 const clearBtn = document.querySelector(".clear");
 const deleteBtn = document.querySelector(".delete")
