@@ -33,33 +33,46 @@ let operator = "";
 let secondOperand = [];
 currentOperand = firstOperand;
 
-const calDisplay = "";
-btns.addEventListener('click', () => {
-    if (btns == num) {
-        currentOperand.push(btns.textContent);
-        calDisplay.textContent = currentOperand.join("");
-    } else if (btns == "=") {
-        return operate;
-    }
-})
+btns.addEventListener('click', (e) => {
+    const clicked = e.target;
+    const value = clicked.textContent;
 
+    if (clicked.classList.contains("btn")) {
+        currentOperand.push(value);
+        calDisplay.textContent = currentOperand.join("");
+    }
+    
+    else if (clicked.classList.contains("decimal")) {
+        if (!currentOperand.includes(".")) {
+            currentOperand.push(".");
+            calDisplay.textContent = currentOperand.join("");
+        }
+    }
+
+    else if (clicked.classList.contains("op") && value !== "=") {
+        operator = value;
+        currentOperand = secondOperand; 
+    }
+
+    else if (value === "=") {
+        const result = operate(firstOperand, operator, secondOperand);
+        calDisplay.textContent = result;
+
+       
+        firstOperand = [result];
+        secondOperand = [];
+        currentOperand = secondOperand;
+    }
+});
 
 function operate(a, operator, b) {
 
-    let a = parseFloat(firstOperand.join(""));
-    let b = parseFloat(secondOperand.join(""));
-    let op = operator[0];
-
-    if (operator == '+') {
-        return add(a, b);
-    } else if (operator == '-') {
-        return subtract(a, b);
-    } else if (operator == '*') {
-        return multiply(a, b);
-    } else {
-        return divide(a, b);
-    }
+    let num1 = parseFloat(a.join(""));
+    let num2 = parseFloat(b.join(""));
+    
+    if (operator === "+") return add(num1, num2);
+    if (operator === "-") return subtract(num1, num2);
+    if (operator === "*") return multiply(num1, num2);
+    if (operator === "/") return divide(num1, num2);
 }
-
-operate(firstOperand, operator, secondOperand);
 
