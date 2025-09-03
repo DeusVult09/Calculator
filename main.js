@@ -50,16 +50,30 @@ btns.addEventListener('click', (e) => {
     }
 
     else if (clicked.classList.contains("op") && value !== "=") {
-        operator = value;
-        currentOperand = secondOperand; 
+        if (secondOperand.length > 0) {
+            const result = operate(firstOperand, operator, secondOperand);
+            result = parseFloat(result.toFixed(2));
+            calDisplay.textContent = result;
+
+            secondOperand = [];
+            operator = value;
+            currentOperand = secondOperand; 
+        } 
+        
+        else {
+            operator = value;
+            currentOperand = secondOperand; 
+        } 
     }
 
     else if (value === "=") {
+        if (secondOperand.length === 0) return;
+
         const result = operate(firstOperand, operator, secondOperand);
+        result = parseFloat(result.toFixed(2));
         calDisplay.textContent = result;
 
        
-        firstOperand = [result];
         secondOperand = [];
         currentOperand = secondOperand;
     }
