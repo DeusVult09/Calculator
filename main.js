@@ -12,21 +12,10 @@ const decimal = document.querySelector(".decimal");
 const clearBtn = document.querySelector(".clear");
 const deleteBtn = document.querySelector(".delete")
 
-const add = function(a, b) {
-    return a + b;
-}
-
-const subtract = function(a, b) {
-    return a - b;
-}
-
-const multiply = function(a, b) {
-    return a * b;
-}
-
-const divide = function(a, b) {
-    return a / b;
-}
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => a / b;
 
 let firstOperand = [];
 let operator = "";
