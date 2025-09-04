@@ -17,10 +17,11 @@ const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
-let firstOperand = [];
+
+let firstOperand = [];          
 let operator = "";
-let secondOperand = [];
-currentOperand = firstOperand;
+let secondOperand = [];         
+let currentOperand = firstOperand;  
 
 btns.addEventListener('click', (e) => {
     const clicked = e.target;
@@ -39,30 +40,27 @@ btns.addEventListener('click', (e) => {
     }
 
     else if (clicked.classList.contains("op") && value !== "=") {
-        if (secondOperand.length > 0) {
+        if (firstOperand.length > 0 && secondOperand.length > 0) {
             const result = operate(firstOperand, operator, secondOperand);
-            result = parseFloat(result.toFixed(2));
-            calDisplay.textContent = result;
+            const rounded = parseFloat(result.toFixed(2));
+            calDisplay.textContent = rounded;
 
-            secondOperand = [];
-            operator = value;
-            currentOperand = secondOperand; 
+            firstOperand = [rounded];
+            secondOperand = []; 
         } 
-        
-        else {
-            operator = value;
-            currentOperand = secondOperand; 
-        } 
+
+        operator = value;
+        currentOperand = secondOperand;
     }
 
     else if (value === "=") {
         if (secondOperand.length === 0) return;
 
         const result = operate(firstOperand, operator, secondOperand);
-        result = parseFloat(result.toFixed(2));
-        calDisplay.textContent = result;
-
+        const rounded = parseFloat(result.toFixed(2));
+        calDisplay.textContent = rounded;
        
+        firstOperand = [rounded];
         secondOperand = [];
         currentOperand = secondOperand;
     }
