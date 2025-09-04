@@ -79,3 +79,19 @@ function operate(a, operator, b) {
     if (operator === "/") return divide(num1, num2);
 }
 
+function allClear() {
+    firstOperand = [];          
+    operator = "";
+    secondOperand = [];         
+    currentOperand = firstOperand; 
+    calDisplay.textContent = "0";
+}
+
+deleteBtn.addEventListener('click', allClear);
+
+function backspace() {
+    currentOperand.pop();
+    calDisplay.textContent = currentOperand.join("") || "0";
+}
+
+clearBtn.addEventListener('click', backspace);
