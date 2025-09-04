@@ -64,6 +64,7 @@ btns.addEventListener('click', (e) => {
         secondOperand = [];
         currentOperand = secondOperand;
     }
+
 });
 
 function operate(a, operator, b) {
@@ -71,6 +72,7 @@ function operate(a, operator, b) {
     let num1 = parseFloat(a.join(""));
     let num2 = parseFloat(b.join(""));
     
+    if (operator === "/" && num2 == 0) return calDisplay.textContent = "Spawn is angry!";
     if (operator === "+") return add(num1, num2);
     if (operator === "-") return subtract(num1, num2);
     if (operator === "*") return multiply(num1, num2);
