@@ -12,6 +12,8 @@ const decimal = document.querySelector(".decimal");
 const clearBtn = document.querySelector(".clear");
 const deleteBtn = document.querySelector(".delete")
 
+// math operations  
+
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
@@ -22,6 +24,8 @@ let firstOperand = [];
 let operator = "";
 let secondOperand = [];         
 let currentOperand = firstOperand;  
+
+// 1st, 2nd operands and operator inputs
 
 btns.addEventListener('click', (e) => {
     const clicked = e.target;
@@ -60,12 +64,15 @@ btns.addEventListener('click', (e) => {
         const rounded = parseFloat(result.toFixed(2));
         calDisplay.textContent = rounded;
        
-        firstOperand = [rounded];
-        secondOperand = [];
-        currentOperand = secondOperand;
+        firstOperand = [];          
+        operator = "";
+        secondOperand = [];         
+        currentOperand = firstOperand; 
     }
 
 });
+
+// calc operation functions
 
 function operate(a, operator, b) {
 
@@ -79,6 +86,8 @@ function operate(a, operator, b) {
     if (operator === "/") return divide(num1, num2);
 }
 
+// clear function 
+
 function allClear() {
     firstOperand = [];          
     operator = "";
@@ -89,9 +98,14 @@ function allClear() {
 
 deleteBtn.addEventListener('click', allClear);
 
+// backspace function
+
 function backspace() {
     currentOperand.pop();
     calDisplay.textContent = currentOperand.join("") || "0";
 }
 
 clearBtn.addEventListener('click', backspace);
+
+// keyboard support
+
