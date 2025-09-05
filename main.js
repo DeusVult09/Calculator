@@ -3,7 +3,7 @@ function chooseHero(hero) {
     window.location.href = "index.html";
 }
 
-const savedTheme = localStorage.getItem("theme") || "spawn"; 
+const savedTheme = localStorage.getItem("theme") || "spawn";
 document.getElementById("theme-link").setAttribute("href", `css/${savedTheme}.css`);
 
 const calDisplay = document.getElementById("display");
@@ -20,14 +20,14 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 
-let firstOperand = [];          
+let firstOperand = [];
 let operator = "";
-let secondOperand = [];         
-let currentOperand = firstOperand;  
+let secondOperand = [];
+let currentOperand = firstOperand;
 
 // 1st, 2nd operands and operator inputs
 
-btns.addEventListener('click', (e) => {
+btns.addEventListener("click", (e) => {
     const clicked = e.target;
     const value = clicked.textContent;
 
@@ -35,7 +35,7 @@ btns.addEventListener('click', (e) => {
         currentOperand.push(value);
         calDisplay.textContent = currentOperand.join("");
     }
-    
+
     else if (clicked.classList.contains("decimal")) {
         if (!currentOperand.includes(".")) {
             currentOperand.push(".");
@@ -50,8 +50,8 @@ btns.addEventListener('click', (e) => {
             calDisplay.textContent = rounded;
 
             firstOperand = [rounded];
-            secondOperand = []; 
-        } 
+            secondOperand = [];
+        }
 
         operator = value;
         currentOperand = secondOperand;
@@ -63,11 +63,11 @@ btns.addEventListener('click', (e) => {
         const result = operate(firstOperand, operator, secondOperand);
         const rounded = parseFloat(result.toFixed(2));
         calDisplay.textContent = rounded;
-       
-        firstOperand = [];          
+
+        firstOperand = [];
         operator = "";
-        secondOperand = [];         
-        currentOperand = firstOperand; 
+        secondOperand = [];
+        currentOperand = firstOperand;
     }
 
 });
@@ -78,7 +78,7 @@ function operate(a, operator, b) {
 
     let num1 = parseFloat(a.join(""));
     let num2 = parseFloat(b.join(""));
-    
+
     if (operator === "/" && num2 == 0) return calDisplay.textContent = "Spawn is angry!";
     if (operator === "+") return add(num1, num2);
     if (operator === "-") return subtract(num1, num2);
@@ -89,10 +89,10 @@ function operate(a, operator, b) {
 // clear function 
 
 function allClear() {
-    firstOperand = [];          
+    firstOperand = [];
     operator = "";
-    secondOperand = [];         
-    currentOperand = firstOperand; 
+    secondOperand = [];
+    currentOperand = firstOperand;
     calDisplay.textContent = "0";
 }
 
@@ -105,7 +105,59 @@ function backspace() {
     calDisplay.textContent = currentOperand.join("") || "0";
 }
 
-clearBtn.addEventListener('click', backspace);
+clearBtn.addEventListener("click", backspace);
 
 // keyboard support
 
+document.addEventListener("keydown", (e) => {
+    const key = e.key;
+
+    if (key >= "0" && key <= "9") {
+        currentOperand.push(key);
+        calDisplay.textContent = currentOperand.join("");
+    }
+
+
+    else if (key === ".") {
+        if (!currentOperand.includes(".")) {
+            currentOperand.push(".");
+            calDisplay.textContent = currentOperand.join("");
+        }
+    }
+
+    else if (["+", "-", "*", "/"].includes(key)) {
+        if (secondOperand.length > 0) {
+            const result = operate(firstOperand, operator, secondOperand);
+            const rounded = parseFloat(result.toFixed(2));
+            calDisplay.textContent = rounded;
+
+            firstOperand = [rounded];
+            secondOperand = [];
+        }
+
+        operator = key;
+        currentOperand = secondOperand;
+    }
+
+    else if (key === "Enter") {
+        if (secondOperand.length === 0) return;
+
+        const result = operate(firstOperand, operator, secondOperand);
+        const rounded = parseFloat(result.toFixed(2));
+        calDisplay.textContent = rounded;
+
+        firstOperand = [];
+        operator = "";
+        secondOperand = [];
+        currentOperand = firstOperand;
+    }
+
+    else if (key === 'Backspace') {
+        backspace();
+    }
+
+    else if (key === 'Escape') {
+        allClear();
+    }
+
+});
