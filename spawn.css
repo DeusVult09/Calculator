@@ -31,8 +31,8 @@ body {
 
 .calculator {
     position: absolute;
-    top: 37%;
-    left: 8%;
+    top: 250px;
+    left: 100px;
     transform: translateY(-50%);
     width: 400px;
     height: 400px;
