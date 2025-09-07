@@ -3,7 +3,8 @@ const calDisplay = document.getElementById("display");
 const btns = document.querySelector(".buttons");
 const decimal = document.querySelector(".decimal");
 const clearBtn = document.querySelector(".clear");
-const deleteBtn = document.querySelector(".delete")
+const deleteBtn = document.querySelector(".delete");
+
 
 // math operations  
 
@@ -154,3 +155,11 @@ document.addEventListener("keydown", (e) => {
     }
 
 });
+
+//audio starts to play when you trigger any button on the calc
+
+window.addEventListener("click", () => {
+    const audio = document.querySelector(".audio");
+    audio.muted = false;
+    audio.play();
+}, { once: true });
