@@ -34,8 +34,8 @@ body {
     top: 250px;
     left: 100px;
     transform: translateY(-50%);
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.7);
     border: 3px solid #39ff14;
@@ -100,7 +100,7 @@ button:hover {
 .smoke-wrap {
     position: absolute;
     bottom: 8px;   
-    right: 300px;   
+    right: 350px;   
     width: 250px;  
 }
 
