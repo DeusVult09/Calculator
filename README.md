@@ -14,4 +14,5 @@ This project helped me to firm my understanding of basic JavaScript concepts and
 # Live Demo: 
 
 # Attributions: 
-audio is
+spawn images taken from: https://alphacoders.com/spawn-(marvel-comics)-wallpapers
+audio is an opening theme song from a movie. All rights belong to the the author of the song and producers. Audio is used in non-commercial purposes. 
