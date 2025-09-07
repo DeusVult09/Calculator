@@ -31,11 +31,11 @@ body {
 
 .calculator {
     position: absolute;
-    top: 250px;
-    left: 100px;
+    top: 37vh;       /* 37% of viewport height */
+    left: 8vw; 
     transform: translateY(-50%);
-    width: 400px;
-    height: 400px;
+    width: 35vw;     /* width scales with viewport width */
+    height: 35vw;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.7);
     border: 3px solid #39ff14;
