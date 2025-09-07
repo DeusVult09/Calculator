@@ -161,5 +161,6 @@ document.addEventListener("keydown", (e) => {
 window.addEventListener("click", () => {
     const audio = document.querySelector(".audio");
     audio.muted = false;
+    audio.volume = 0.1;
     audio.play();
 }, { once: true });
