@@ -4,12 +4,9 @@
     box-sizing: border-box;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-
 body {
     background: radial-gradient(circle at center, #000 70%, #111 100%);
-    font-family: 'Creepster', cursive;
+    font-family: 'UnifrakturCook', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,6 +43,7 @@ body {
     padding: 20px;
     box-shadow: 0 0 20px #39ff14, 0 0 50px #39ff14, inset 0 0 15px #ff0000;
     animation: spawnGlow 3s infinite alternate;
+    font-family: 'UnifrakturCook', cursive;
 }
 
 
