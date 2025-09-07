@@ -70,8 +70,8 @@ body {
 
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 60px);
-    gap: 10px;
+    grid-template-columns: repeat(4, 5vw); 
+    gap: 1vw;                              
     justify-content: center;
 }
 
