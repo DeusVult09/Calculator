@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     background: radial-gradient(circle at center, #000 70%, #111 100%);
     font-family: 'UnifrakturCook', cursive;
