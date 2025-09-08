@@ -19,6 +19,7 @@ let operator = "";
 let secondOperand = [];
 let currentOperand = firstOperand;
 
+
 // 1st, 2nd operands and operator inputs
 
 btns.addEventListener("click", (e) => {
@@ -58,12 +59,10 @@ btns.addEventListener("click", (e) => {
         const rounded = parseFloat(result.toFixed(2));
         calDisplay.textContent = rounded;
 
-        firstOperand = [];
-        operator = "";
+        firstOperand = [rounded];
         secondOperand = [];
-        currentOperand = firstOperand;
+        currentOperand = secondOperand;
     }
-
 });
 
 // calc operation functions
@@ -140,10 +139,9 @@ document.addEventListener("keydown", (e) => {
         const rounded = parseFloat(result.toFixed(2));
         calDisplay.textContent = rounded;
 
-        firstOperand = [];
-        operator = "";
+        firstOperand = [rounded];
         secondOperand = [];
-        currentOperand = firstOperand;
+        currentOperand = secondOperand;
     }
 
     else if (key === 'Backspace') {
