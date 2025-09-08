@@ -163,4 +163,5 @@ window.addEventListener("click", () => {
     audio.muted = false;
     audio.volume = 0.1;
     audio.play();
-}, { once: true });
+    audio.loop = true;
+});
